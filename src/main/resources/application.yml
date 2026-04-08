@@ -1,25 +1,26 @@
 server:
-  port: 8080
+  port: ${PORT:8080}
 
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/swasthyasetu
-    username: root
-    password: root
+    url: jdbc:mysql://avnadmin:AVNS_FV74G_P0x-ycn3jwKCD@mysql-1c0b1824-adityayaramalla-c6ac.k.aivencloud.com:23377/defaultdb?ssl-mode=REQUIRED
+    username: avnadmin
+    password: AVNS_xxxxxxxxx
     driver-class-name: com.mysql.cj.jdbc.Driver
+
   jpa:
     hibernate:
       ddl-auto: update
     show-sql: true
     properties:
       hibernate:
-        format_sql: true
         dialect: org.hibernate.dialect.MySQLDialect
 
 app:
   jwt:
     secret: 9A72F67448CD9B1238914B924A22F263300C32345B73F2837341829D0A13FB9C
-    access-expiry-ms: 900000       # 15 minutes
-    refresh-expiry-ms: 604800000   # 7 days
+    access-expiry-ms: 900000
+    refresh-expiry-ms: 604800000
+
   storage:
     upload-dir: ./uploads
