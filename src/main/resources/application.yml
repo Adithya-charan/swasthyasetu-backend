@@ -3,22 +3,23 @@ server:
 
 spring:
   datasource:
-    url: ${SPRING_DATASOURCE_URL}
-    username: ${SPRING_DATASOURCE_USERNAME}
-    password: ${SPRING_DATASOURCE_PASSWORD}
+    url: jdbc:mysql://${DB_HOST:mysql-1c0b1824-adityayaramalla-c6ac.k.aivencloud.com}:${DB_PORT:23377}/${DB_NAME:defaultdb}?useSSL=true&requireSSL=true
+    username: ${DB_USER:avnadmin}
+    password: ${DB_PASSWORD}
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
     hibernate:
       ddl-auto: update
     show-sql: true
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.MySQLDialect
+        format_sql: true
 
 app:
   jwt:
-    secret: ${APP_JWT_SECRET}
+    secret: ${APP_JWT_SECRET:9A72F67448CD9B1238914B924A22F263300C32345B73F2837341829D0A13FB9C}
     access-expiry-ms: 900000
     refresh-expiry-ms: 604800000
 
